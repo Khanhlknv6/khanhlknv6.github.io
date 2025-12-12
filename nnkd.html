@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra: Quản Lý Ngành Nghề Kinh Doanh Có Điều Kiện</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f7;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        /* Thông tin cá nhân */
+        .info-group {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .info-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            flex-grow: 1;
+        }
+        /* Câu hỏi */
+        .question-block {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .question-block h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .option-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .option-group label {
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .option-group label:hover {
+            background-color: #e6f0ff;
+        }
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        /* Nút nộp bài */
+        #submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        #submit-btn:hover {
+            background-color: #1e7e34;
+        }
+        /* Khu vực kết quả */
+        #result-area {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #ffe0b2; /* Màu cam nhạt */
+            color: #333;
+            border: 2px solid #ff9800;
+            display: none; /* Ban đầu ẩn */
+        }
+        #result-area h3 {
+            color: #d84315;
+            margin-top: 0;
+        }
+        .correct { background-color: #d4edda; border: 1px solid #c3e6cb; }
+        .incorrect { background-color: #f8d7da; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Bài Kiểm Tra Trắc Nghiệm</h1>
+        <h2>Quản Lý Ngành Nghề Kinh Doanh Có Điều Kiện</h2>
+
+        <div class="info-group">
+            <input type="text" id="name" placeholder="Họ và tên người làm">
+            <input type="text" id="id-number" placeholder="Số báo danh (hoặc Mã nhân viên)">
+        </div>
+
+        <form id="quiz-form">
+            <div class="question-block" id="q1">
+                <h3>1. Theo Luật Doanh nghiệp hiện hành, "kinh doanh có điều kiện" là gì?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q1" value="A"> A. Là ngành, nghề mà doanh nghiệp nào cũng được phép kinh doanh.</label>
+                    <label><input type="radio" name="q1" value="B"> B. Là ngành, nghề đầu tư kinh doanh phải đáp ứng điều kiện vì lý do quốc phòng, an ninh quốc gia, trật tự an toàn xã hội.</label>
+                    <label><input type="radio" name="q1" value="C"> C. Là ngành, nghề kinh doanh chỉ dành cho các doanh nghiệp nhà nước.</label>
+                    <label><input type="radio" name="q1" value="D"> D. Là ngành, nghề cần vốn đầu tư trên 100 tỷ đồng.</label>
+                </div>
+            </div>
+
+            <div class="question-block" id="q2">
+                <h3>2. Điều kiện kinh doanh được áp dụng dưới hình thức nào?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q2" value="A"> A. Giấy phép kinh doanh.</label>
+                    <label><input type="radio" name="q2" value="B"> B. Chứng chỉ hành nghề.</label>
+                    <label><input type="radio" name="q2" value="C"> C. Yêu cầu về vốn pháp định.</label>
+                    <label><input type="radio" name="q2" value="D"> D. Tất cả các hình thức trên.</label>
+                </div>
+            </div>
+
+            <div class="question-block" id="q3">
+                <h3>3. Cơ quan nào có thẩm quyền ban hành danh mục ngành, nghề đầu tư kinh doanh có điều kiện?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q3" value="A"> A. Ủy ban nhân dân các tỉnh, thành phố.</label>
+                    <label><input type="radio" name="q3" value="B"> B. Quốc hội.</label>
+                    <label><input type="radio" name="q3" value="C"> C. Chính phủ.</label>
+                    <label><input type="radio" name="q3" value="D"> D. Bộ Kế hoạch và Đầu tư.</label>
+                </div>
+            </div>
+
+            <div class="question-block" id="q4">
+                <h3>4. Ngành nghề nào sau đây **không** thuộc danh mục kinh doanh có điều kiện (theo quy định chung)?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q4" value="A"> A. Dịch vụ đòi nợ.</label>
+                    <label><input type="radio" name="q4" value="B"> B. Kinh doanh xăng dầu.</label>
+                    <label><input type="radio" name="q4" value="C"> C. Dịch vụ kế toán.</label>
+                    <label><input type="radio" name="q4" value="D"> D. Sản xuất và buôn bán rau củ quả thông thường.</label>
+                </div>
+            </div>
+
+            <div class="question-block" id="q5">
+                <h3>5. Khi muốn thay đổi điều kiện kinh doanh, cơ quan nhà nước có phải công bố công khai không?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q5" value="A"> A. Có, phải công bố công khai trên Cổng thông tin quốc gia.</label>
+                    <label><input type="radio" name="q5" value="B"> B. Không cần, chỉ cần thông báo riêng cho doanh nghiệp liên quan.</label>
+                    <label><input type="radio" name="q5" value="C"> C. Chỉ công bố khi có yêu cầu bằng văn bản của doanh nghiệp.</label>
+                    <label><input type="radio" name="q5" value="D"> D. Tùy thuộc vào cấp độ của điều kiện kinh doanh.</label>
+                </div>
+            </div>
+            
+            <div class="question-block" id="q6">
+                <h3>6. Cơ quan cấp phép kinh doanh lữ hành quốc tế là cơ quan nào?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q6" value="A"> A. Bộ Kế hoạch và Đầu tư.</label>
+                    <label><input type="radio" name="q6" value="B"> B. Sở Văn hóa, Thể thao và Du lịch (hoặc Sở Du lịch).</label>
+                    <label><input type="radio" name="q6" value="C"> C. Sở Kế hoạch và Đầu tư.</label>
+                    <label><input type="radio" name="q6" value="D"> D. Công an địa phương.</label>
+                </div>
+            </div>
+            
+            <div class="question-block" id="q7">
+                <h3>7. "Giấy phép con" là thuật ngữ dùng để chỉ điều gì?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q7" value="A"> A. Giấy phép nhỏ cho các chi nhánh của doanh nghiệp.</label>
+                    <label><input type="radio" name="q7" value="B"> B. Các loại giấy phép, chứng chỉ được yêu cầu bổ sung ngoài Giấy chứng nhận đăng ký doanh nghiệp để kinh doanh có điều kiện.</label>
+                    <label><input type="radio" name="q7" value="C"> C. Giấy chứng nhận đăng ký doanh nghiệp dành cho các hộ kinh doanh cá thể.</label>
+                    <label><input type="radio" name="q7" value="D"> D. Giấy phép xây dựng cho các dự án nhỏ.</label>
+                </div>
+            </div>
+            
+            <div class="question-block" id="q8">
+                <h3>8. Doanh nghiệp kinh doanh có điều kiện có thể bị thu hồi Giấy phép kinh doanh nếu vi phạm điều kiện trong bao lâu?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q8" value="A"> A. Doanh nghiệp không thể bị thu hồi Giấy phép.</label>
+                    <label><input type="radio" name="q8" value="B"> B. Tùy thuộc vào mức độ vi phạm và quy định của ngành.</label>
+                    <label><input type="radio" name="q8" value="C"> C. Chỉ bị phạt hành chính, không bị thu hồi.</label>
+                    <label><input type="radio" name="q8" value="D"> D. Bị thu hồi ngay khi phát hiện vi phạm lần đầu.</label>
+                </div>
+            </div>
+            
+            <div class="question-block" id="q9">
+                <h3>9. Để kinh doanh dịch vụ bảo vệ, doanh nghiệp cần đáp ứng yêu cầu nào sau đây?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q9" value="A"> A. Có vốn pháp định tối thiểu 10 tỷ đồng.</label>
+                    <label><input type="radio" name="q9" value="B"> B. Người quản lý phải có bằng cấp đại học về luật.</label>
+                    <label><input type="radio" name="q9" value="C"> C. Đáp ứng các điều kiện về an ninh trật tự do cơ quan công an quy định.</label>
+                    <label><input type="radio" name="q9" value="D"> D. Phải là công ty TNHH một thành viên.</label>
+                </div>
+            </div>
+            
+            <div class="question-block" id="q10">
+                <h3>10. Luật nào là cơ sở pháp lý chính điều chỉnh hoạt động kinh doanh có điều kiện?</h3>
+                <div class="option-group">
+                    <label><input type="radio" name="q10" value="A"> A. Luật Thương mại.</label>
+                    <label><input type="radio" name="q10" value="B"> B. Luật Đầu tư.</label>
+                    <label><input type="radio" name="q10" value="C"> C. Bộ luật Dân sự.</label>
+                    <label><input type="radio" name="q10" value="D"> D. Luật Cạnh tranh.</label>
+                </div>
+            </div>
+
+            <button type="button" id="submit-btn" onclick="submitQuiz()">Nộp Bài & Xem Kết Quả</button>
+        </form>
+
+        <div id="result-area">
+            <h3>KẾT QUẢ BÀI KIỂM TRA</h3>
+            <p id="info-display"></p>
+            <p id="score-display"></p>
+            <p>
+                **Thông báo quan trọng:** Chức năng gửi email trực tiếp tới `laikimkhanh789@gmail.com` không thực hiện được do giới hạn kỹ thuật của trang web tĩnh (frontend).
+            </p>
+            <div id="email-content-suggestion">
+                <p>Bạn có thể **sao chép nội dung dưới đây** và gửi qua email:</p>
+                <textarea id="copy-text" rows="8" style="width: 100%; border: 1px solid #ddd; padding: 10px;"></textarea>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // Đáp án chính xác
+        const correctAnswers = {
+            q1: 'B',
+            q2: 'D',
+            q3: 'B', // Quốc hội ban hành Luật Đầu tư, trong đó có danh mục này.
+            q4: 'D',
+            q5: 'A',
+            q6: 'B',
+            q7: 'B',
+            q8: 'B', // Tùy thuộc mức độ, có thể bị thu hồi.
+            q9: 'C',
+            q10: 'B' // Luật Đầu tư quy định về danh mục và nguyên tắc chung.
+        };
+
+        function submitQuiz() {
+            const name = document.getElementById('name').value.trim();
+            const idNumber = document.getElementById('id-number').value.trim();
+            const form = document.getElementById('quiz-form');
+            const resultArea = document.getElementById('result-area');
+            const infoDisplay = document.getElementById('info-display');
+            const scoreDisplay = document.getElementById('score-display');
+            const copyText = document.getElementById('copy-text');
+            
+            let score = 0;
+            const totalQuestions = Object.keys(correctAnswers).length;
+            let resultsDetail = '';
+
+            // 1. Kiểm tra thông tin cá nhân
+            if (name === "" || idNumber === "") {
+                alert("Vui lòng nhập đầy đủ Họ và tên và Số báo danh!");
+                return;
+            }
+
+            // 2. Tính điểm và đánh dấu đáp án
+            for (let i = 1; i <= totalQuestions; i++) {
+                const qName = 'q' + i;
+                const selectedOption = form.elements[qName].value;
+                const correctOption = correctAnswers[qName];
+                const qBlock = document.getElementById(qName);
+
+                // Reset màu nền
+                qBlock.classList.remove('correct', 'incorrect');
+                
+                // Đánh dấu và tính điểm
+                if (selectedOption) {
+                    if (selectedOption === correctOption) {
+                        score++;
+                        qBlock.classList.add('correct');
+                        resultsDetail += `\nCâu ${i}: Đúng (Đáp án: ${selectedOption})`;
+                    } else {
+                        qBlock.classList.add('incorrect');
+                        resultsDetail += `\nCâu ${i}: Sai (Bạn chọn: ${selectedOption}, Đáp án đúng: ${correctOption})`;
+                    }
+                } else {
+                    qBlock.classList.add('incorrect'); // Coi là sai nếu không chọn
+                    resultsDetail += `\nCâu ${i}: Chưa chọn (Đáp án đúng: ${correctOption})`;
+                }
+            }
+
+            // 3. Hiển thị kết quả
+            const scoreText = `Điểm số: ${score}/${totalQuestions}`;
+            
+            infoDisplay.innerHTML = `**Họ và tên:** ${name} <br> **Số báo danh:** ${idNumber}`;
+            scoreDisplay.innerHTML = `**${scoreText}**`;
+            resultArea.style.display = 'block';
+            
+            // 4. Tạo nội dung để người dùng sao chép gửi mail
+            const contentForEmail = `
+--- KẾT QUẢ BÀI KIỂM TRA ---
+Họ và tên: ${name}
+Số báo danh: ${idNumber}
+Địa chỉ email nhận: laikimkhanh789@gmail.com (Tự gửi)
+Điểm số: ${score}/${totalQuestions}
+
+CHI TIẾT:
+${resultsDetail}
+-----------------------------
+`;
+            copyText.value = contentForEmail.trim();
+
+            // Cuộn lên đầu khu vực kết quả
+            resultArea.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
